@@ -18,7 +18,7 @@ private:
 public:
 	f1eremenko();
 	f1eremenko(wstring Team, wstring Driver, int Year, int Power, double Weight);
-	void readFromConsole();
+	f1eremenko& readFromConsole();
 	void displayToConsole() const;
 	void readFromFile(ifstream& file);
 	void writeToFile(ofstream& file) const;

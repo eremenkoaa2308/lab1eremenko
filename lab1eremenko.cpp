@@ -24,35 +24,15 @@ int main() {
         wcin >> choice;
         switch (choice) {
         case 1: {
-            f1eremenko newCar;
-            newCar.readFromConsole();
-            garage.addCar(newCar);
+            garage.addCar(f1eremenko().readFromConsole());
             wcout << L"Машина добавлена в гараж!\n";
             break;
         }
         case 2:
             garage.displayAllCars();
             break;
-        case 3: {  // Удаление одной машины
-            if (garage.getSize() == 0) {
-                wcout << L"Гараж пуст! Нечего удалять.\n";
-                break;
-            }
-            garage.displayAllCars();
-            wcout << L"Введите номер машины для удаления (1-" << garage.getSize() << L"): ";
-            size_t index;
-            wcin >> index;
-            if (index < 1 || index > garage.getSize()) {
-                wcout << L"Неверный номер машины!\n";
-            }
-            else {
-                try {
-                    garage.removeCar(index - 1);  // -1 потому что пользователь видит с 1
-                }
-                catch (const exception& e) {
-                    wcout << L"Ошибка при удалении: " << e.what() << L"\n";
-                }
-            }
+        case 3: {
+            garage.removeCarByUserInput();
             break;
         }
         case 4:

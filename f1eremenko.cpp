@@ -55,7 +55,7 @@ f1eremenko::f1eremenko(wstring Team, wstring Driver, int Year, int Power, double
 	weight = Weight;
 }
 
-void f1eremenko::readFromConsole()
+f1eremenko& f1eremenko::readFromConsole()
 {
     wcout << L"\n===Ввод данных машины Формулы1 ===\n";
     wcin.ignore();
@@ -64,6 +64,7 @@ void f1eremenko::readFromConsole()
     year = readIntWithValidation(L"Год (1950-2030): ", 1950, 2030);
     power = readIntWithValidation(L"Мощность (л.с., 500-2000): ", 500, 2000);
     weight = readDoubleWithValidation(L"Вес (кг, 500-1000): ", 500.0, 1000.0);
+    return *this;
 }
 
 void f1eremenko::displayToConsole() const
@@ -114,6 +115,7 @@ int f1eremenko::getYear() const
 {
     return year;
 }
+
 
 int f1eremenko::getPower() const
 {

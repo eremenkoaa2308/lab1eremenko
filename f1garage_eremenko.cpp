@@ -4,6 +4,11 @@ f1garage_eremenko::f1garage_eremenko()
 {
 }
 
+f1garage_eremenko::~f1garage_eremenko()
+{
+    clearGarage();
+}
+
 void f1garage_eremenko::addCar(const f1eremenko& car)
 {
 	cars.push_back(car);
@@ -69,7 +74,7 @@ void f1garage_eremenko::writeToFile(const string& filename) const
 
 void f1garage_eremenko::clearGarage()
 {
-    cars.clear();  // Просто очищаем вектор
+    vector<f1eremenko>().swap(cars);
     wcout << L"Гараж очищен!\n";
 }
 
@@ -78,3 +83,28 @@ size_t f1garage_eremenko::getSize() const
     return cars.size();
 }
 
+void f1garage_eremenko::removeCarByUserInput()
+{
+    if (cars.empty()) {
+        wcout << L"Гараж пуст! Нечего удалять.\n";
+        return;
+    }
+
+    displayAllCars();
+    wcout << L"Введите номер машины для удаления (1-" << cars.size() << L"): ";
+
+    size_t index;
+    wcin >> index;
+
+    if (index < 1 || index > cars.size()) {
+        wcout << L"Неверный номер машины!\n";
+        return;
+    }
+
+    try {
+        removeCar(index - 1);
+    }
+    catch (const exception& e) {
+        wcout << L"Ошибка при удалении: " << e.what() << L"\n";
+    }
+}
