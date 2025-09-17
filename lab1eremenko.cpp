@@ -46,6 +46,7 @@ int main() {
             break;
         case 7:
             wcout << L"Выход из программы...\n";
+            garage.clearGarage();
             break;
         default:
             wcout << L"Неверный выбор! Попробуйте снова.\n";
