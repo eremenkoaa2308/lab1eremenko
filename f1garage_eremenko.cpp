@@ -74,7 +74,10 @@ void f1garage_eremenko::writeToFile(const string& filename) const
 
 void f1garage_eremenko::clearGarage()
 {
-    vector<f1eremenko>().swap(cars);
+    for (auto& car : cars) {
+        delete& car; // Удаляем каждый объект
+    }
+    cars.clear(); // Очищаем вектор
     wcout << L"Гараж очищен!\n";
 }
 
