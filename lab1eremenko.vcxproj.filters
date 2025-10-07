@@ -24,12 +24,18 @@
     <ClCompile Include="f1garage_eremenko.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="f1eremenko_extended.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="f1eremenko.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="f1garage_eremenko.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="f1eremenko_extended.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
